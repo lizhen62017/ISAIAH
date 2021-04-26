@@ -1,0 +1,29 @@
+#!/bin/bash
+#SBATCH -J PARPARWNMWNMXXX
+#SBATCH -e job_run.err
+#SBATCH -N 1 -c 1 --gres=gpu:1
+#SBATCH --mem=16G
+#SBATCH --time=3:59:00
+
+echo $SLURM_SUBMIT_DIR
+cd $SLURM_SUBMIT_DIR
+
+module purge && ml GNU/7.3.0-2.30 && ml OpenMPI/3.1.1-CUDA && ml Amber/18-AmberTools-19 && ulimit -c 0
+
+pmemd.cuda -O -i md_min.in -o md_min.out -p IONION_wat_svc.prmtop -c IONION_wat_svc.inpcrd -r md_min.rst -x md_min.netcdf
+pmemd.cuda -O -i md_nvt.in -o md_nvt.out -p IONION_wat_svc.prmtop -c md_min.rst -r md_nvt.rst -x md_nvt.netcdf
+pmemd.cuda -O -i md_npt.in -o md_npt.out -p IONION_wat_svc.prmtop -c md_nvt.rst -r md_npt.rst -x md_npt.netcdf
+pmemd.cuda -O -i md_md.in -o md_md.out -p IONION_wat_svc.prmtop -c md_npt.rst -r md_md.rst -x md_md.netcdf
+pmemd.cuda -O -i md_diff.in -o md_diff_0.out -p IONION_wat_svc.prmtop -c md_md.rst -r md_diff_0.rst -x md_diff_0.netcdf
+for ((i=1;i<80;i++))
+do
+j=`echo $i-1|bc`
+pmemd.cuda -O -i md_gap.in -o md_gap_$j.out -p IONION_wat_svc.prmtop -c md_diff_$j.rst -r md_gap_$j.rst -x md_gap_$j.netcdf
+pmemd.cuda -O -i md_diff.in -o md_diff_$i.out -p IONION_wat_svc.prmtop -c md_gap_$j.rst -r md_diff_$i.rst -x md_diff_$i.netcdf
+done
+if [[ ! -f "md_diff_79.netcdf" ]]; then
+sbatch ION.slm
+fi
+
+echo "Job finished"
+

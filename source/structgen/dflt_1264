@@ -1,0 +1,6 @@
+parm IONION_wat.prmtop
+loadRestrt IONION_wat.inpcrd
+setOverwrite True
+add12_6_4 @%IONIONCHGCHG c4file c4.txt
+outparm IONION_wat_svc.prmtop IONION_wat_svc.inpcrd
+printLJMatrix @%IONIONCHGCHG

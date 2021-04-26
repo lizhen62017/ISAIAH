@@ -1,0 +1,25 @@
+md for IOD calculation
+ &cntrl
+  imin=0,
+  irest=1,
+  ntx=5,
+  ig=-1,
+  nstlim=1000000,
+  dt=0.001,
+  cut=10.0,
+  ntc=2,
+  ntf=2,
+  ntb=1,
+  tempi=300.0,
+  temp0=300.0,
+  ntt=3,
+  gamma_ln=2.0,
+  ntpr=500,
+  ntwr=500,
+  ntwx=500,
+  ntwv=-1,
+  ioutfm=1,
+  lj1264=0,
+/
+&ewald
+/

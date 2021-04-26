@@ -1,0 +1,2 @@
+trajin md_diff_0.netcdf
+diffusion out Wat_msd.agr :WAT@O Wat_dc diffout Wat_dc.dat time 0.2 noimage

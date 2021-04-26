@@ -1,0 +1,14 @@
+source leaprc.protein.ff14SB
+source leaprc.gaff2
+loadOff solvents.lib
+loadOff atomic_ions.lib
+loadOff ION.lib
+HOH = WATCAP
+WAT = WATCAP
+loadamberparams frcmod.WATWAT
+mol = loadpdb ION.pdb
+loadamberparams ION.frcmod
+solvateBox mol WATCAPBOX SZESZE.0
+savepdb mol ION_WATER.pdb
+saveamberparm mol IONION_wat.prmtop IONION_wat.inpcrd
+quit

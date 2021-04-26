@@ -1,0 +1,41 @@
+#!/bin/bash
+#SBATCH -J ISAIAH
+#SBATCH -e test.err
+#SBATCH -o test.out
+#SBATCH -n 4 -c 1
+#SBATCH --mem=32G
+#SBATCH --time=03:55:00
+  
+echo $SLURM_SUBMIT_DIR
+cd $SLURM_SUBMIT_DIR
+
+#-------------- Load Modules ------------------
+module purge
+module load GNU/6.4.0-2.28  OpenMPI/2.1.2-CUDA
+module load Amber/18
+ulimit -c 0
+
+#-------------- Run job -----------------------
+input="input.in"
+wnm=(2000 4000 6000 8000)
+
+while IFS= read -r line
+do
+  wat=$(echo $line | awk '{ print $1 }')
+  ion=$(echo $line | awk '{ print $2 }')
+  par=$(echo $line | awk '{ print $4 }')
+
+  cd ${wat}_${ion}/run_${par}
+
+  for ((i=0;i<4;i++))
+  do 
+    cd ${wnm[${i}]}WAT
+    sh master.sh
+    echo " "
+    sh maswat.sh
+    echo " "
+    cd ..
+  done
+  cd ../..
+
+done < "$input"

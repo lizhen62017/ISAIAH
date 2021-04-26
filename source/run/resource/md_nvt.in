@@ -1,0 +1,38 @@
+nvt for IOD calculation
+ &cntrl
+  imin=0,
+  irest=0,
+  ig=-1,
+  nstlim=360000,
+  dt=0.001,
+  cut=10.0,
+  ntc=2,
+  ntf=2,
+  ntb=1,
+  tempi=0.0,
+  temp0=300.0,
+  ntt=3,
+  gamma_ln=2.0,
+  ntpr=500,
+  ntwr=500,
+  ntwx=5000,
+  ntwv=-1,
+  ioutfm=1,
+  lj1264=0,
+  nmropt=1,
+/
+&wt type='TEMP0', istep1=0, istep2=30000, value1=0.0, value2=50.0 /
+&wt type='TEMP0', istep1=30001, istep2=60000, value1=50.0, value2=50.0 /
+&wt type='TEMP0', istep1=60001, istep2=90000, value1=50.0, value2=100.0 /
+&wt type='TEMP0', istep1=90001, istep2=120000, value1=100.0, value2=100.0 /
+&wt type='TEMP0', istep1=120001, istep2=150000, value1=100.0, value2=150.0 /
+&wt type='TEMP0', istep1=150001, istep2=180000, value1=150.0, value2=150.0 /
+&wt type='TEMP0', istep1=180001, istep2=210000, value1=150.0, value2=200.0 /
+&wt type='TEMP0', istep1=210001, istep2=240000, value1=200.0, value2=200.0 /
+&wt type='TEMP0', istep1=240001, istep2=270000, value1=200.0, value2=250.0 /
+&wt type='TEMP0', istep1=270001, istep2=300000, value1=250.0, value2=250.0 /
+&wt type='TEMP0', istep1=300001, istep2=330000, value1=250.0, value2=300.0 /
+&wt type='TEMP0', istep1=330001, istep2=360000, value1=300.0, value2=300.0 /
+&wt type='END' /
+&ewald
+/

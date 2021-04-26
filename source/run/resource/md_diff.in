@@ -1,0 +1,20 @@
+for diffusivity calculation ! using "md_md.rst" as restart file
+ &cntrl 
+  imin=0, ! no need to minimize
+  irest=1, ! restart from the last .rst file
+  ntx=5, ! read the coordinates and speed
+  ntb=1, ! use constant volume periodic boundaries to turn on PME
+  cut=10.0, ! doundary cutoff is 10 Angstrom
+  ntc=2, ! bonds involving hydrogen have length constrained by SHAKE
+  ntf=2, ! same as ntc
+  ntt=0, ! constant total energy, key part of NVE simulation
+  nstlim=20000, ! 20ps simulation
+  dt=0.001, ! time step as 1fs
+  ntpr=200, ! print information in mdinfo every 200 steps
+  ntwx=200, ! write coordinates in mdcrd file every 0.2 ps
+  ntwr=200, ! write rst file every 200 steps
+  ioutfm=1, ! output trajectory is in NETCDF format
+  lj1264=0, ! turn on 1264 force field
+/
+&ewald
+/

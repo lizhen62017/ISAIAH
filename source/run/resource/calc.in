@@ -1,0 +1,2 @@
+trajin md_diff_0.netcdf
+diffusion out IONION_msd.agr @1 IONION_dc diffout IONION_dc.dat time 0.2 noimage
