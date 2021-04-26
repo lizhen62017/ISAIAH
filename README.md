@@ -1,8 +1,6 @@
 # ISAIAH
 Ion Simulation in AMBER for dIffusion Actions when Hydrated
-
 "When you pass through the waters, I will be with you." -- Isaiah 43:2
-
 A bash->slurm->python hybrid interface for benchmarking ion diffusion coefficients using AMBER MD package. 
 
 User Manual: 
@@ -10,7 +8,9 @@ User Manual:
 2. Slrum workload manager can be installed from https://slurm.schedmd.com/download.html. Most HPC systems should have Slurm built in already. 
 3. Python 2.7.15 and above should fit it well. Anyway it is only used for plotting and numpy linear extrapolation. 
 4. Once the three prerequisites above are met, modify the "input.in" file as the format below (example already provided):
+
    "<water model> <element name> <charge> <parameter set> <atomic number> <formula weight> <Rmin/2> <epsilon> <C4>".
+   
    Rmin/2, epsilon and C4 values can be found in these publications (please see their citations for earlier water model parameters): 
       https://doi.org/10.1021/acs.jctc.0c00194
       https://doi.org/10.1021/acs.jctc.0c01320
