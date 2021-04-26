@@ -1,6 +1,8 @@
 # ISAIAH
 Ion Simulation in AMBER for dIffusion Actions when Hydrated
+
 "When you pass through the waters, I will be with you." -- Isaiah 43:2
+
 A bash->slurm->python hybrid interface for benchmarking ion diffusion coefficients using AMBER MD package. 
 
 User Manual: 
