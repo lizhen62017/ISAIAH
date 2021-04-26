@@ -14,7 +14,7 @@ User Manual:
 
 3. Python 2.7.15 and above should fit it well. Anyway it is only used for plotting and numpy linear extrapolation. 
 
-4. Once the three prerequisites above are met, modify the "input.in" file as the format below (example already provided):
+4. Once the three prerequisites above are met, modify the "input.in" file using the format below (example already provided):
    
    "(water model) (element name) (charge) (parameter set) (atomic number) (formula weight) (Rmin/2) (epsilon) (C4)".
    
