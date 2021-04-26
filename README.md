@@ -26,8 +26,8 @@ User Manual:
       
       https://doi.org/10.1021/acs.jcim.0c01390
       
-5. Run "ISAIAH.sh" to fire MD runs. One line of input will fire 80 jobs, so please check your Slurm max workload before doing this. 
+5. Run "sh ISAIAH.sh" to fire MD runs. One line of input will fire 80 jobs, so please check your Slurm max workload before doing this. 
 
-6. When Slurm says all jobs are done, run "ISAIAH.pbs" to fire one job to collect data in "test.out". 
+6. When Slurm says all jobs are done, run "sbatch ISAIAH.pbs" to fire one job to collect data in "test.out". 
 
-7. Run "ISAIAH.py" to get several final plots, different parameter sets of the same water/ion system will be plotted together. 
+7. Run "python ISAIAH.py" to get several final plots, different parameter sets of the same water/ion system will be plotted together. 
