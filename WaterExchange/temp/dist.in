@@ -1,0 +1,4 @@
+for i=0;i<80;i++
+   trajin md_diff_$i.netcdf
+done
+autoimage

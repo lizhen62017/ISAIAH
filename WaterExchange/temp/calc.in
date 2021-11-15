@@ -1,0 +1,13 @@
+for i=0;i<80;i++
+   trajin md_diff_$i.netcdf
+done
+autoimage
+hbond HB out nhb.dat avgout solute_avg.dat \
+dist UPUPUP angle -1 \
+acceptormask :CA donormask :WAT@O \
+solvout solvent_avg.dat \
+series uuseries uuhbonds.agr uvseries uvhbonds.agr
+create nhbvtime.agr HB[UU]
+run
+lifetime HB[solutehb] out lifetime.dat
+runanalysis

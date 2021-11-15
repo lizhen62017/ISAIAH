@@ -1,0 +1,28 @@
+#!/bin/bash
+#SBATCH -J exchangeCa
+#SBATCH -e test.err
+#SBATCH -o test.out
+#SBATCH -n 4 -c 1
+#SBATCH --mem=32G
+#SBATCH --time=167:55:00
+  
+echo $SLURM_SUBMIT_DIR
+cd $SLURM_SUBMIT_DIR
+
+#-------------- Load Modules ------------------
+module purge
+module load GNU/6.4.0-2.28  OpenMPI/2.1.2-CUDA
+module load Amber/18
+ulimit -c 0
+
+exe=$AMBERHOME/bin/pmemd.MPI
+num=4
+#-------------- Run job -----------------------
+echo 'RUN AMBER JOB'
+# running command
+sed -i "s/UPUPUP/3.6/g" calc.in distproc.py
+sed -i "s/LOWLOW/3.4/g" distproc.py
+cpptraj Ca_wat_svc.prmtop < calc.in > out
+python distgen.py
+cpptraj Ca_wat_svc.prmtop < dist.in > out
+python distproc.py &> out1010

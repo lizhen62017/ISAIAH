@@ -1,0 +1,16 @@
+min for IOD calculation
+ &cntrl
+  imin=1,
+  irest=0,
+  maxcyc=10000,
+  ncyc=5000,
+  cut=10.0,
+  ntb=1,
+  ntpr=500,
+  ntwr=500,
+  ntwx=5000,
+  ioutfm=1,
+  lj1264=1,
+/
+&ewald
+/
