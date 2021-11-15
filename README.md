@@ -6,12 +6,13 @@ Ion Simulation in AMBER for dIffusion Actions when Hydrated
 
 A bash->slurm->python hybrid interface for benchmarking ion diffusion coefficients using AMBER MD package. 
 
-Update 11/15/2021: How to calculate Water exchange ratio? 
+Update 11/15/2021: How to calculate water exchange rate? 
 
-1. Finish the steps 1~3 of the regular User Manual mentioned as below. 
+1. Finish steps 1~3 from the regular User Manual mentioned as below. 
 2. Hop to WaterExchange directory. 
 3. sbatch Ca.slm.
-4. After job done, sbatch cpu.pbs
+4. After Ca.slm job done, sbatch cpu.pbs. 
+5. The water exchange count will be displayed at the end of WaterExchangeOut file. 
 
 User Manual: 
 
