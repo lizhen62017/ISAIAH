@@ -25,4 +25,4 @@ sed -i "s/LOWLOW/3.4/g" distproc.py
 cpptraj Ca_wat_svc.prmtop < calc.in > out
 python distgen.py
 cpptraj Ca_wat_svc.prmtop < dist.in > out
-python distproc.py &> out1010
+python distproc.py &> WaterExchangeOut
