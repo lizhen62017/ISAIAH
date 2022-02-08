@@ -34,7 +34,7 @@ User Manual:
       
       https://doi.org/10.1021/acs.jcim.0c01390
       
-5. Run "sh ISAIAH.sh" to fire MD runs. One line of input will fire 80 jobs, so please check your Slurm max workload before doing this. 
+5. Run "sh ISAIAH.sh" to fire MD runs. One line of input will fire 80 jobs (4 box sizes times 20 duplicates at each box size), so please check your Slurm max workload before doing this. 
 
 6. When Slurm says all jobs are done, run "sbatch ISAIAH.pbs" to fire one job to collect data in "test.out". 
 
