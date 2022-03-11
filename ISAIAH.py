@@ -33,6 +33,8 @@ for line in Lines[1:]:
     if line[0] != 'f': 
       if float(line) <= 3.0 and float(line) >= 0.3: 
         raw[runs].append(float(line))
+      else: 
+        print("error: diffusion value out of reasonable range, please check MD trajectory to confirm.")
   else:
     runs += 1
 f2.close()
